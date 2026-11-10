@@ -9,7 +9,6 @@ interface SlideProps {
 export const Slide01Title: React.FC<SlideProps> = ({ onNext }) => {
   // Editable metadata state with clean defaults
   const [college, setCollege] = useState('Department of Computer Science & Engineering');
-  const [faculty, setFaculty] = useState('Faculty Guide: [Prof. Name / Department]');
   const [division, setDivision] = useState('Division: A | Batch: FY-CSE');
   const [academicYear, setAcademicYear] = useState('Academic Year: 2024–2025');
 
@@ -229,13 +228,6 @@ export const Slide01Title: React.FC<SlideProps> = ({ onNext }) => {
                 title="Click to edit Academic Year"
               />
             </div>
-            <input
-              type="text"
-              value={faculty}
-              onChange={(e) => setFaculty(e.target.value)}
-              className="w-full bg-[#FFF8EF] border border-[#E2E8F0] rounded px-1.5 py-0.5 text-[10px] text-[#27334A] focus:outline-none focus:ring-1 focus:ring-[#7C5CFC]"
-              title="Click to edit Faculty Guide Name"
-            />
           </div>
         </div>
       </motion.div>
