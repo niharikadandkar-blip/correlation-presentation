@@ -9,8 +9,8 @@ interface SlideProps {
 export const Slide01Title: React.FC<SlideProps> = ({ onNext }) => {
   // Editable metadata state with clean defaults
   const [college, setCollege] = useState('Department of Computer Science & Engineering');
-  const [division, setDivision] = useState('Division: A | Batch: FY-CSE');
-  const [academicYear, setAcademicYear] = useState('Academic Year: 2024–2025');
+  const [division, setDivision] = useState('Division: C | FY CSE');
+  const [academicYear, setAcademicYear] = useState('Academic Year: 2026–27');
 
   return (
     <div className="w-full h-full flex flex-col justify-center items-center px-4 py-4 max-w-5xl mx-auto overflow-y-auto">
