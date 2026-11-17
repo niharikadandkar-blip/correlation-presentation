@@ -9,6 +9,7 @@ interface PresentationBarProps {
   onOpenOverview: () => void;
   isFullscreen: boolean;
   onToggleFullscreen: () => void;
+  onOpenPrintView?: () => void;
 }
 
 export const PresentationBar: React.FC<PresentationBarProps> = ({
@@ -19,6 +20,7 @@ export const PresentationBar: React.FC<PresentationBarProps> = ({
   onOpenOverview,
   isFullscreen,
   onToggleFullscreen,
+  onOpenPrintView,
 }) => {
   const [showShortcuts, setShowShortcuts] = React.useState(false);
 
@@ -67,15 +69,14 @@ export const PresentationBar: React.FC<PresentationBarProps> = ({
             <span className="hidden sm:inline">Overview</span>
           </button>
 
-          <a
-            href="/Correlation_Presentation_Handout_2SlidesPerPage.pdf"
-            download="Correlation_Presentation_Handout_2SlidesPerPage.pdf"
-            className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-[#FDF2F8] hover:bg-[#FCE7F3] text-xs font-semibold text-[#BE185D] border border-[#FBCFE8] transition-all hover:scale-105 active:scale-95"
-            title="Download PDF Handout (2 Slides Per Page)"
+          <button
+            onClick={onOpenPrintView}
+            className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-[#FDF2F8] hover:bg-[#FCE7F3] text-xs font-semibold text-[#BE185D] border border-[#FBCFE8] transition-all hover:scale-105 active:scale-95 cursor-pointer"
+            title="Open Exact 2-Slides-Per-Page Print View / Save to PDF"
           >
             <FileDown className="w-3.5 h-3.5 text-[#DB2777]" />
             <span className="hidden sm:inline">PDF (2/Page)</span>
-          </a>
+          </button>
 
           <button
             onClick={() => setShowShortcuts(!showShortcuts)}

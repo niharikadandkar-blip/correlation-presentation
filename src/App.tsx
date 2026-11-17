@@ -4,6 +4,7 @@ import { SLIDES_METADATA } from './data/slidesMetadata';
 import { slideVariants } from './utils/transitions';
 import { PresentationBar } from './components/Navigation/PresentationBar';
 import { OverviewModal } from './components/Navigation/OverviewModal';
+import { PrintHandoutView } from './components/Navigation/PrintHandoutView';
 
 // Slides matching the exact 16-slide syllabus
 import { Slide01Title } from './components/Slides/Slide01Title';
@@ -28,6 +29,13 @@ export function App() {
   const [direction, setDirection] = useState<number>(1);
   const [isOverviewOpen, setIsOverviewOpen] = useState<boolean>(false);
   const [isFullscreen, setIsFullscreen] = useState<boolean>(false);
+  const [isPrintMode, setIsPrintMode] = useState<boolean>(() => {
+    if (typeof window !== 'undefined') {
+      const params = new URLSearchParams(window.location.search);
+      return params.get('print') === 'true';
+    }
+    return false;
+  });
   const containerRef = useRef<HTMLDivElement>(null);
 
   const totalSlides = SLIDES_METADATA.length;
@@ -119,6 +127,11 @@ export function App() {
     }
   };
 
+  // Render print handout view if in print mode
+  if (isPrintMode) {
+    return <PrintHandoutView onBack={() => setIsPrintMode(false)} />;
+  }
+
   return (
     <div
       ref={containerRef}
@@ -199,6 +212,7 @@ export function App() {
         onOpenOverview={() => setIsOverviewOpen(true)}
         isFullscreen={isFullscreen}
         onToggleFullscreen={toggleFullscreen}
+        onOpenPrintView={() => setIsPrintMode(true)}
       />
 
       {/* Overview Modal */}
