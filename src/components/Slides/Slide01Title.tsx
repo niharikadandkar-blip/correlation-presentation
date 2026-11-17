@@ -8,20 +8,28 @@ interface SlideProps {
 
 export const Slide01Title: React.FC<SlideProps> = ({ onNext }) => {
   // Editable metadata state with clean defaults
-  const [college, setCollege] = useState('Department of Computer Science & Engineering');
+  const [college, setCollege] = useState('Bharati Vidyapeeth Deemed to be University, Pune');
   const [division, setDivision] = useState('Division: C | FY CSE');
   const [academicYear, setAcademicYear] = useState('Academic Year: 2026–27');
 
   return (
     <div className="w-full h-full flex flex-col justify-center items-center px-4 py-4 max-w-5xl mx-auto overflow-y-auto">
-      {/* Top Academic Tag */}
+      {/* Top Academic Tag with Institution Cutout Logo */}
       <motion.div
         initial={{ opacity: 0, y: -12 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.4 }}
-        className="flex items-center gap-2 mb-3 bg-white/90 border border-[#FFE0D2] px-4 py-1.5 rounded-full shadow-xs"
+        className="flex items-center gap-2.5 mb-2.5 bg-white/95 border border-[#FFE0D2] px-4 py-1.5 rounded-full shadow-xs"
       >
-        <BookOpen className="w-4 h-4 text-[#FF7E67]" />
+        <img
+          src="/images/bvp-logo-cutout.png"
+          alt="Bharati Vidyapeeth Logo"
+          className="w-5 h-5 object-contain"
+          onError={(e) => {
+            (e.target as HTMLImageElement).src = '/images/bvp-logo.png';
+          }}
+        />
+        <BookOpen className="w-3.5 h-3.5 text-[#FF7E67]" />
         <span className="text-xs font-bold uppercase tracking-wider text-[#27334A]/80">
           Probability & Statistics • PBL Presentation
         </span>

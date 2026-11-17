@@ -129,8 +129,51 @@ export function App() {
       <div className="absolute top-1/2 -right-32 w-96 h-96 rounded-full bg-[#E9E1FA]/45 blur-3xl pointer-events-none" />
       <div className="absolute -bottom-32 left-1/3 w-96 h-96 rounded-full bg-[#DCEBFA]/45 blur-3xl pointer-events-none" />
 
+      {/* Top Navigation / Branding Header Elements */}
+      <header className="fixed top-0 left-0 right-0 z-30 pointer-events-none p-3 sm:px-6 sm:py-3.5 flex justify-between items-center">
+        {/* Top-Left: Prominent Slide Number & Topic Badge */}
+        <div className="pointer-events-auto flex items-center gap-2 bg-white/90 backdrop-blur-md px-3.5 py-1.5 rounded-full shadow-sm border border-[#FFE0D2] select-none hover:bg-white transition-all">
+          <span className="w-2 h-2 rounded-full bg-[#7C5CFC] animate-pulse" />
+          <span className="text-xs font-black text-[#7C5CFC] tracking-wider uppercase">
+            Slide {String(currentSlide).padStart(2, '0')}
+          </span>
+          <span className="text-xs text-[#27334A]/40 font-bold">/</span>
+          <span className="text-xs text-[#27334A]/60 font-semibold">{String(totalSlides).padStart(2, '0')}</span>
+          {currentMeta && (
+            <>
+              <span className="hidden sm:inline-block text-xs text-[#27334A]/25">|</span>
+              <span className="hidden sm:inline-block text-xs font-semibold text-[#27334A]/80 max-w-[200px] md:max-w-[320px] truncate">
+                {currentMeta.title}
+              </span>
+            </>
+          )}
+        </div>
+
+        {/* Top-Right: Bharati Vidyapeeth Logo & Cutout Badge */}
+        <div className="pointer-events-auto flex items-center gap-2.5 bg-white/90 backdrop-blur-md px-3 py-1.5 rounded-full shadow-sm border border-[#E9E1FA] select-none hover:shadow-md transition-all group">
+          <div className="relative w-8 h-8 sm:w-9 sm:h-9 flex items-center justify-center">
+            <img
+              src="/images/bvp-logo-cutout.png"
+              alt="Bharati Vidyapeeth Deemed University Logo Cutout"
+              className="w-full h-full object-contain filter drop-shadow-xs transform group-hover:scale-105 transition-transform"
+              onError={(e) => {
+                (e.target as HTMLImageElement).src = '/images/bvp-logo.png';
+              }}
+            />
+          </div>
+          <div className="flex flex-col text-right leading-tight pr-1">
+            <span className="text-[11px] sm:text-xs font-extrabold text-[#27334A] tracking-tight">
+              Bharati Vidyapeeth
+            </span>
+            <span className="text-[9px] sm:text-[10px] font-medium text-[#7C5CFC]">
+              Deemed to be University, Pune
+            </span>
+          </div>
+        </div>
+      </header>
+
       {/* Main Slide Presentation Stage */}
-      <main className="relative z-10 flex-1 w-full h-[calc(100vh-76px)] overflow-hidden flex items-center justify-center p-2 sm:p-4 pb-2">
+      <main className="relative z-10 flex-1 w-full h-[calc(100vh-76px)] pt-14 sm:pt-16 pb-2 overflow-hidden flex items-center justify-center p-2 sm:p-4">
         <AnimatePresence mode="wait" custom={direction}>
           <motion.div
             key={currentSlide}
