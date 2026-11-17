@@ -122,12 +122,13 @@ export function App() {
   return (
     <div
       ref={containerRef}
-      className="relative w-screen h-screen overflow-hidden bg-[#FFF8EF] text-[#27334A] flex flex-col justify-between font-sans select-none bg-pastel-dots"
+      className="relative w-screen h-screen overflow-hidden bg-gradient-to-br from-[#E0F2FE] via-[#FFF5F8] to-[#FCE7F3] text-[#27334A] flex flex-col justify-between font-sans select-none bg-pastel-dots"
     >
-      {/* Subtle Pastel Ambient Glow Orbs */}
-      <div className="absolute -top-32 -left-32 w-96 h-96 rounded-full bg-[#FFE0D2]/40 blur-3xl pointer-events-none" />
-      <div className="absolute top-1/2 -right-32 w-96 h-96 rounded-full bg-[#E9E1FA]/45 blur-3xl pointer-events-none" />
-      <div className="absolute -bottom-32 left-1/3 w-96 h-96 rounded-full bg-[#DCEBFA]/45 blur-3xl pointer-events-none" />
+      {/* Visual Ambient Pastel Glow Orbs (Pastel Blue & Pastel Pink Aesthetic) */}
+      <div className="absolute -top-32 -left-32 w-[30rem] h-[30rem] rounded-full bg-[#BAE6FD]/45 blur-3xl pointer-events-none" />
+      <div className="absolute top-1/4 -right-24 w-[28rem] h-[28rem] rounded-full bg-[#FBCFE8]/50 blur-3xl pointer-events-none" />
+      <div className="absolute -bottom-32 left-1/3 w-[32rem] h-[32rem] rounded-full bg-[#BFDBFE]/45 blur-3xl pointer-events-none" />
+      <div className="absolute bottom-10 -left-20 w-80 h-80 rounded-full bg-[#FCE7F3]/60 blur-3xl pointer-events-none" />
 
       {/* Top Navigation / Branding Header Elements */}
       <header className="fixed top-0 left-0 right-0 z-30 pointer-events-none p-3 sm:px-6 sm:py-3.5 flex justify-between items-center">

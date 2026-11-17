@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { ChevronLeft, ChevronRight, Maximize2, Minimize2, Grid, HelpCircle } from 'lucide-react';
+import { ChevronLeft, ChevronRight, Maximize2, Minimize2, Grid, HelpCircle, FileDown } from 'lucide-react';
 
 interface PresentationBarProps {
   currentSlide: number;
@@ -66,6 +66,16 @@ export const PresentationBar: React.FC<PresentationBarProps> = ({
             <Grid className="w-3.5 h-3.5 text-[#FF7E67]" />
             <span className="hidden sm:inline">Overview</span>
           </button>
+
+          <a
+            href="/Correlation_Presentation_Handout_2SlidesPerPage.pdf"
+            download="Correlation_Presentation_Handout_2SlidesPerPage.pdf"
+            className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-[#FDF2F8] hover:bg-[#FCE7F3] text-xs font-semibold text-[#BE185D] border border-[#FBCFE8] transition-all hover:scale-105 active:scale-95"
+            title="Download PDF Handout (2 Slides Per Page)"
+          >
+            <FileDown className="w-3.5 h-3.5 text-[#DB2777]" />
+            <span className="hidden sm:inline">PDF (2/Page)</span>
+          </a>
 
           <button
             onClick={() => setShowShortcuts(!showShortcuts)}

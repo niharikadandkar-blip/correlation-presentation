@@ -11,7 +11,8 @@
     margin: 0;
     padding: 0;
     font-family: 'Inter', system-ui, sans-serif;
-    background-color: #FFF8EF;
+    background: linear-gradient(135deg, #E0F2FE 0%, #FFF5F8 50%, #FCE7F3 100%);
+    background-attachment: fixed;
     color: #27334A;
     user-select: none;
     -webkit-font-smoothing: antialiased;
